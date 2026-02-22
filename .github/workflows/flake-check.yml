@@ -1,0 +1,19 @@
+name: Flake Check
+
+on: [pull_request]
+
+jobs:
+  flake-monster:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - uses: flake-monster/action@v1
+        with:
+          test-command: 'node --test test/*.test.js'
+          globs: 'src/**/*.js'
+          runs: '5'
+          mode: 'medium'

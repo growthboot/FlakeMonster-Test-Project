@@ -1,0 +1,13 @@
+{
+  "name": "flake-monster-test-project",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A sample project with intentionally flaky async code for testing FlakeMonster",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "devDependencies": {
+    "flake-monster": "latest"
+  }
+}
